@@ -1,5 +1,7 @@
 package site.jayqyuan.movies;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +13,8 @@ public class MovieController {
 
     //GetMapping Maps HTTP Get requests
     @GetMapping
-    public  String allMovies(){
-        return "All Movies";
+    public ResponseEntity<String> allMovies(){
+        return new ResponseEntity<String>("All Movies", HttpStatus.OK);
     }
 
 }
