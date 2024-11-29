@@ -7,11 +7,13 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "reviews")
+@Document(collection = "reviews") //Shows this class is corresponded to the mongoDB collection called 'review'
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
     @Id
     private ObjectId id;
+
+    private String body;
 }
