@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// purpose of a controller is just to get a request form the user and returning a response
 @RestController //indicate this class is a REST API controller
 @RequestMapping("/api/v1/movies") //Maps all requests starting with "/api/v1/movies"
 public class MovieController {
