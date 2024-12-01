@@ -15,18 +15,18 @@ public class ReviewService {
     private MongoTemplate mongoTemplate;
     //locate the movie with imdbId to and use the reviewBody to create review for the movie
     public Review createReview(String reviewBody, String imdbId){
-        //step 1 create review with given reviewBody
-        Review review = new Review(reviewBody);
-        //step 2: insert review object into the "reviews" collection in MongoDB
-        reviewRepository.insert(review);
+        //step 1 create review with given reviewBody and insert into the review collection
+        Review review = reviewRepository.insert(new Review(reviewBody));
 
         //step 3: use MongoTemplate to locate movie and associate the review with it
         mongoTemplate.update(Movie.class)// specify the entity type we will be updating (Movie class)
                 .matching( //define criteria for selecting the movie to update.
                         Criteria.where("imdbId").is(imdbId) // locate movie by the imdbId
                 )
-                .apply(new Update().push("reviewIds").value(review))
-        ; //add the review's ID to the movie's reviewIDs array field
+                .apply(new Update().push("reviewIds").value(review)) //add the review's ID to the movie's reviewIDs array field
+                .first(); //apply update to the first matching document (or only one in this case)
 
+        //return the created Review object for further use or confirmation
+        return review;
     }
 }
