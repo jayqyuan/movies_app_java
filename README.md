@@ -22,7 +22,4 @@ A simple and efficient backend system built using **Java**, **Spring Boot**, and
 | **MongoDB**      | NoSQL database for data storage      | ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248.svg?style=flat-square&logo=mongodb&logoColor=white) |
 | **Maven**        | Dependency management tool           | ![Maven](https://img.shields.io/badge/Maven-%23C71A36.svg?style=flat-square&logo=apache-maven&logoColor=white) |
 
----
-
-## 📁 Project Structure
 
